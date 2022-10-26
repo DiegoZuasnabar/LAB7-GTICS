@@ -20,6 +20,10 @@ public class Solicitud {
     @Column(name = "solicitud_fecha")
     private Instant solicitudFecha;
 
+    @ManyToOne
+    @JoinColumn(name = "usuarios_id")
+    private Usuario usuariosId;
+
     @Column(name = "solicitud_estado", length = 45)
     private String solicitudEstado;
 
@@ -63,4 +67,11 @@ public class Solicitud {
         this.solicitudEstado = solicitudEstado;
     }
 
+    public Usuario getUsuariosId() {
+        return usuariosId;
+    }
+
+    public void setUsuariosId(Usuario usuariosId) {
+        this.usuariosId = usuariosId;
+    }
 }
