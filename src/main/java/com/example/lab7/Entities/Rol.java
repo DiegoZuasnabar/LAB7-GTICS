@@ -1,4 +1,4 @@
-package com.example.lab7;
+package com.example.lab7.Entities;
 
 import javax.persistence.*;
 

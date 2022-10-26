@@ -1,20 +1,26 @@
-package com.example.lab7;
+package com.example.lab7.Entities;
+
+import com.example.lab7.Entities.Credito;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 @Entity
-@Table(name = "cuotas")
-public class Cuota {
+@Table(name = "pagos")
+public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "numero_cuota")
-    private Integer numeroCuota;
-
     @Column(name = "monto")
     private Double monto;
+
+    @Column(name = "tipo_pago", length = 45)
+    private String tipoPago;
+
+    @Column(name = "fecha")
+    private Instant fecha;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "creditos_id", nullable = false)
@@ -28,20 +34,28 @@ public class Cuota {
         this.id = id;
     }
 
-    public Integer getNumeroCuota() {
-        return numeroCuota;
-    }
-
-    public void setNumeroCuota(Integer numeroCuota) {
-        this.numeroCuota = numeroCuota;
-    }
-
     public Double getMonto() {
         return monto;
     }
 
     public void setMonto(Double monto) {
         this.monto = monto;
+    }
+
+    public String getTipoPago() {
+        return tipoPago;
+    }
+
+    public void setTipoPago(String tipoPago) {
+        this.tipoPago = tipoPago;
+    }
+
+    public Instant getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Instant fecha) {
+        this.fecha = fecha;
     }
 
     public Credito getCreditos() {
