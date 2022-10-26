@@ -19,7 +19,7 @@ public class Desembolso {
     @Column(name = "fecha")
     private Instant fecha;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "creditos_id", nullable = false)
     private Credito creditos;
 
