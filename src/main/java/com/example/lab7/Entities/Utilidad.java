@@ -1,7 +1,5 @@
 package com.example.lab7.Entities;
 
-import com.example.lab7.Entities.Usuario;
-
 import javax.persistence.*;
 import java.time.Instant;
 

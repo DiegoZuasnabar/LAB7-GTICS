@@ -29,14 +29,15 @@ public class Usuario {
     private String password;
 
     @Column(name = "estado_logico", length = 45)
-    private String estadoLogico;
+    private String estado_logico;
 
     @ManyToOne
     @JoinColumn(name = "rol_id", nullable = false)
-    private Rol rol;
+    private Rol rol_id;
 
     @Column(name = "fecha_registro")
-    private Instant fechaRegistro;
+    private Instant fecha_registro;
+
 
     public Integer getId() {
         return id;
@@ -86,28 +87,27 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getEstadoLogico() {
-        return estadoLogico;
+    public String getEstado_logico() {
+        return estado_logico;
     }
 
-    public void setEstadoLogico(String estadoLogico) {
-        this.estadoLogico = estadoLogico;
+    public void setEstado_logico(String estado_logico) {
+        this.estado_logico = estado_logico;
     }
 
-    public Rol getRol() {
-        return rol;
+    public Rol getRol_id() {
+        return rol_id;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setRol_id(Rol rol_id) {
+        this.rol_id = rol_id;
     }
 
-    public Instant getFechaRegistro() {
-        return fechaRegistro;
+    public Instant getFecha_registro() {
+        return fecha_registro;
     }
 
-    public void setFechaRegistro(Instant fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
+    public void setFecha_registro(Instant fecha_registro) {
+        this.fecha_registro = fecha_registro;
     }
-
 }
