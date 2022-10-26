@@ -1,6 +1,6 @@
 package com.example.lab7.repository;
 
-import com.example.lab7.Solicitud;
+import com.example.lab7.Entities.Solicitud;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
