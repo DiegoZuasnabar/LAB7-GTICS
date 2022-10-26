@@ -1,4 +1,6 @@
-package com.example.lab7;
+package com.example.lab7.Entities;
+
+import com.example.lab7.Entities.Rol;
 
 import javax.persistence.*;
 import java.time.Instant;

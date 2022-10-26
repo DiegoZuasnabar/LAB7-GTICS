@@ -1,14 +1,22 @@
-package com.example.lab7;
+package com.example.lab7.Entities;
+
+import com.example.lab7.Entities.Credito;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "historial")
-public class Historial {
+@Table(name = "cuotas")
+public class Cuota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
+
+    @Column(name = "numero_cuota")
+    private Integer numeroCuota;
+
+    @Column(name = "monto")
+    private Double monto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "creditos_id", nullable = false)
@@ -20,6 +28,22 @@ public class Historial {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getNumeroCuota() {
+        return numeroCuota;
+    }
+
+    public void setNumeroCuota(Integer numeroCuota) {
+        this.numeroCuota = numeroCuota;
+    }
+
+    public Double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(Double monto) {
+        this.monto = monto;
     }
 
     public Credito getCreditos() {

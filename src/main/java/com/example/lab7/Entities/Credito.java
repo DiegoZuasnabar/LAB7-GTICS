@@ -1,25 +1,24 @@
-package com.example.lab7;
+package com.example.lab7.Entities;
 
 import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "utilidades")
-public class Utilidad {
+@Table(name = "creditos")
+public class Credito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "monto")
-    private Double monto;
+    @Column(name = "monto", length = 45)
+    private String monto;
 
     @Column(name = "fecha")
     private Instant fecha;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "usuarios_id", nullable = false)
-    private Usuario usuarios;
+    @Column(name = "interes")
+    private Double interes;
 
     public Integer getId() {
         return id;
@@ -29,11 +28,11 @@ public class Utilidad {
         this.id = id;
     }
 
-    public Double getMonto() {
+    public String getMonto() {
         return monto;
     }
 
-    public void setMonto(Double monto) {
+    public void setMonto(String monto) {
         this.monto = monto;
     }
 
@@ -45,12 +44,12 @@ public class Utilidad {
         this.fecha = fecha;
     }
 
-    public Usuario getUsuarios() {
-        return usuarios;
+    public Double getInteres() {
+        return interes;
     }
 
-    public void setUsuarios(Usuario usuarios) {
-        this.usuarios = usuarios;
+    public void setInteres(Double interes) {
+        this.interes = interes;
     }
 
 }
