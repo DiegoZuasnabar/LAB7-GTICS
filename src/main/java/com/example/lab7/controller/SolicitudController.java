@@ -18,7 +18,7 @@ public class SolicitudController {
     SolicitudRepository solicitudRepository;
 
     /****** Pregunta 2a ******/
-    @PostMapping("/solicitudes/registros")
+    @PostMapping("/solicitudes/registro")
     public ResponseEntity<HashMap<String,String>> guardarSolicitud(@RequestBody Solicitud solicitud){
         HashMap<String,String> hashMap = new HashMap<>();
 
@@ -39,7 +39,7 @@ public class SolicitudController {
     }
 
     /****** Pregunta 2b ******/
-    @PutMapping(value = "/solicitudes/aprobar")
+    @PutMapping(value = "/solicitudes/aprobarSolicitud")
     public ResponseEntity<HashMap<String,String>> aprobarSolicitudFormaParcial(@RequestParam("idSolicitud") Integer idSolicitud){
         HashMap<String,String> hashMap = new HashMap<>();
 
@@ -49,11 +49,12 @@ public class SolicitudController {
 
             if(solicitudOriginal.getSolicitudEstado().equalsIgnoreCase("pendiente")){
                 solicitudOriginal.setSolicitudEstado("aprobado");
+                solicitudRepository.save(solicitudOriginal);
                 hashMap.put("id solicitud", String.valueOf(solicitudOriginal.getId()));
                 return ResponseEntity.status(HttpStatus.CREATED).body(hashMap);
             }else{
                 hashMap.put("solicitud ya atendida", String.valueOf(solicitudOriginal.getId()));
-                return ResponseEntity.status(HttpStatus.CREATED).body(hashMap);
+                return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body(hashMap);
             }
         }else{
             hashMap.put("status","error");
