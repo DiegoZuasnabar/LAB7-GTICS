@@ -14,6 +14,10 @@ public class Credito {
     @Column(name = "monto", length = 45)
     private String monto;
 
+    @ManyToOne
+    @JoinColumn(name = "usuarios_id", nullable = false)
+    private Usuario usuario_id;
+
     @Column(name = "fecha")
     private Instant fecha;
 
@@ -52,4 +56,11 @@ public class Credito {
         this.interes = interes;
     }
 
+    public Usuario getUsuario_id() {
+        return usuario_id;
+    }
+
+    public void setUsuario_id(Usuario usuario_id) {
+        this.usuario_id = usuario_id;
+    }
 }

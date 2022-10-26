@@ -16,6 +16,10 @@ public class Pago {
     @Column(name = "monto")
     private Double monto;
 
+    @ManyToOne
+    @JoinColumn(name = "usuarios_id", nullable = false)
+    private Usuario usuario_id;
+
     @Column(name = "tipo_pago", length = 45)
     private String tipoPago;
 
@@ -24,7 +28,7 @@ public class Pago {
 
     @ManyToOne
     @JoinColumn(name = "creditos_id", nullable = false)
-    private Credito creditos;
+    private Credito creditos_id;
 
     public Integer getId() {
         return id;
@@ -58,12 +62,20 @@ public class Pago {
         this.fecha = fecha;
     }
 
-    public Credito getCreditos() {
-        return creditos;
+
+    public Usuario getUsuario_id() {
+        return usuario_id;
     }
 
-    public void setCreditos(Credito creditos) {
-        this.creditos = creditos;
+    public void setUsuario_id(Usuario usuario_id) {
+        this.usuario_id = usuario_id;
     }
 
+    public Credito getCreditos_id() {
+        return creditos_id;
+    }
+
+    public void setCreditos_id(Credito creditos_id) {
+        this.creditos_id = creditos_id;
+    }
 }
