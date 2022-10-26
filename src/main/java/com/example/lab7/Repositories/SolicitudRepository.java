@@ -1,4 +1,4 @@
-package com.example.lab7.repository;
+package com.example.lab7.Repositories;
 
 import com.example.lab7.Entities.Solicitud;
 import org.springframework.data.jpa.repository.JpaRepository;

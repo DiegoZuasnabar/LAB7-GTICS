@@ -1,7 +1,7 @@
-package com.example.lab7.controller;
+package com.example.lab7.Controllers;
 
 import com.example.lab7.Entities.Solicitud;
-import com.example.lab7.repository.SolicitudRepository;
+import com.example.lab7.Repositories.SolicitudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
