@@ -17,6 +17,10 @@ public class Accion {
     @Column(name = "fecha")
     private Instant fecha;
 
+    @ManyToOne
+    @JoinColumn(name = "usuarios_id", nullable = false)
+    private Usuario usuario_id;
+
     public Integer getId() {
         return id;
     }
@@ -39,6 +43,14 @@ public class Accion {
 
     public void setFecha(Instant fecha) {
         this.fecha = fecha;
+    }
+
+    public Usuario getUsuario_id() {
+        return usuario_id;
+    }
+
+    public void setUsuario_id(Usuario usuario_id) {
+        this.usuario_id = usuario_id;
     }
 
 }
